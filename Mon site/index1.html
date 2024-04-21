@@ -1,0 +1,85 @@
+<!Document tpye>
+<html lan="en">
+  <main>
+    <form>
+    <link rel="stylesheet" type="text/css" href="f.css">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" required>
+      <label for="Prenom">Prenom :</label>
+      <input type="text" id="Prenom" name="Prenom" required>
+      <label for="ville">Ville:</label>
+      <select type="text" id="Ville " name="Ville" required>
+      <option value="Ville">Yaounde</option>
+        <option value="Ville">Douala</option>
+        <option value="Ville">Bafoussam</option>
+        <option value="Ville">Bamenda</option>
+        <option value="Ville">Buea</option>
+        <option value="Ville">Maroua</option>
+        <option value="Ville">Garoua</option>
+        <option value="Ville">Ngaoundere</option>
+        <option value="Ville">Ebolowa</option>
+        <option value="Ville">Bertoua</option>
+      </select>
+
+      <label for="adresse">Adresse :</label>
+      <input type="text" id="adresse" name="adresse" required>
+      <label for="Livraison ?">Souhaiter-vous vous faire liver ? </label>
+      <input type="checkbox" id="OUI" name="OUI">
+      <label for="Livraison ?">OUI </label>
+      <input type="checkbox"id="NON Merci" name="NON Merci">
+      <label for="Livraison ?">NON Merci </label>
+
+      <label for="produit">Produit :</label>
+      <select id="produit" name="produit">
+        <option value="produit1">Produit 1</option>
+        <option value="produit2">Produit 2</option>
+        <option value="produit3">Produit 3</option>
+      </select>
+    <form id="commandeForm">
+      <label for="montant">Montant de la commande :</label>
+      <input type="number" id="montant" name="montant" min="0">
+      <label for="livraison">Livraison :</label>
+      <select id="livraison" name="livraison">
+        <option value="non">Non</option>
+        <option value="yaounde">Yaoundé</option>
+        <option value="autre">Autre ville</option>
+      </select>
+      <button type="submit">Calculer</button>
+    </form>
+    <p id="resultat"></p>
+
+  <script>
+    var formulaire = document.getElementById("commandeForm");
+    var montantInput = document.getElementById("montant");
+    var livraisonSelect = document.getElementById("livraison");
+    var resultat = document.getElementById("resultat");
+
+    formulaire.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var montantCommande = parseFloat(montantInput.value);
+      var livraisonVille = livraisonSelect.value;
+
+      var montantTotal = montantCommande;
+
+      if (livraisonVille === "yaounde") {
+        montantTotal += 1500;
+      } else if (livraisonVille === "autre") {
+        montantTotal += 2000;
+      }
+
+      resultat.textContent = "Montant total de la commande : " + montantTotal;
+    });
+    <form id="paiementForm">
+      <label for="mtn">
+        <input type="checkbox" id="mtn" name="moyenPaiement" value="mtn">
+        <img src="mtn_logo.png" alt="Logo MTN">
+      </label>
+      <label for="orange">
+        <input type="checkbox" id="orange" name="moyenPaiement" value="orange">
+        <img src="orange_logo.png" alt="Logo Orange">
+      </label>
+      <button type="submit">Payer</button>
+    </form>
+  
+  </footer>

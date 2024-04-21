@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html langue="en"
+<head>
+    <title>Inscription à un site de pâtisseries</title>
+    <style>
+        .boite-dialogue {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .boite-dialogue h2 {
+            margin-top: 0;
+        }
+      
+    .success-message {
+      display: none;
+      color: green;
+    }
+    </style>
+</head>
+
+    <div id="connexion-dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="dialog-close" onclick="closeDialog()">&times;</span>
+            <h2>Connexion</h2>
+            <form>
+            <link rel="stylesheet" type="text/css" href="f.css">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="motdepasse">Mot de passe:</label>
+                <input type="password" id="motdepasse" name="motdepasse" required><br><br>
+                <input type="submit" value="Se connecter">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var connexionBtn = document.getElementById('connexion-btn');
+        var dialog = document.getElementById('connexion-dialog');
+
+        connexionBtn.addEventListener('click', function() {
+            dialog.style.display = 'block';
+        });
+
+        function closeDialog() {
+            dialog.style.display = 'none';
+        }
+           document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page après la soumission du formulaire
+      showSuccessMessage();
+    });
+
+    function showSuccessMessage() {
+      var successMessage = document.getElementById("success-message");
+      successMessage.style.display = "block";
+    }
+    </script>
+ 
+</html>
